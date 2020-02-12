@@ -1,0 +1,49 @@
+version: '3'
+services:
+    atsistemas-web:
+        image: atsistemas:web
+        privileged: true
+        ports:
+            - "80:80"
+        volumes:
+            - <path_to_this_folder>/source/web:/var/www/html/public
+            - <path_to_this_folder>/profiler/web:/var/www/profiler
+            - <path_to_this_folder>/client-log:/var/log
+        links:
+            - atsistemas-databases
+            - atsistemas-api
+    atsistemas-api:
+        image: linkmobility:api
+        privileged: true
+        ports:
+            - "8080:80"
+        volumes:
+            - <path_to_this_folder>/source/api:/var/www/html
+            - <path_to_this_folder>/profiler/api:/var/www/profiler
+            - <path_to_this_folder>/docker/api-log:/var/log
+        environment:
+            TZ: "Europe/Madrid"
+            DB_CONNECTION: mysql
+            DB_HOST: atsistemas-databases
+            DB_PORT: 3306
+            DB_DATABASE: atsistemas
+            DB_USERNAME: atUser
+            DB_PASSWORD: atPassword
+        links:
+            - atsistemas-databases
+    atsistemas-databases:
+        image: mysql:5.7
+        restart: always
+        ports:
+            - "33306:3306"
+        volumes:
+            - <path_to_this_folder>/data:/var/lib/mysql
+        environment:
+            TZ: "Europe/Madrid"
+            MYSQL_HOST: "localhost"
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_USER: 'atUser'
+            MYSQL_PASSWORD: 'atPassword'
+            MYSQL_DATABASE: 'at_db'
+        command: --max_allowed_packet=1024M

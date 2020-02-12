@@ -1,0 +1,6 @@
+FROM atsistemas:base
+
+COPY xdebug-api.ini /etc/php5/apache2/conf.d/xdebug.ini
+EXPOSE 9001
+
+ENTRYPOINT cmd.sh
