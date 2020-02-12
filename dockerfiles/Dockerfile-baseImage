@@ -10,10 +10,10 @@ RUN apt-get install -y apache2 libapache2-mod-php5 php5-xdebug
 
 RUN apt-get install -y php5-mysql
 
-COPY apache-default.conf /etc/apache2/sites-available/000-default.conf
+COPY /conf/apache-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite
-COPY cmd.sh /bin/
+COPY /conf/cmd.sh /bin/
 
 RUN chmod +x /bin/cmd.sh
 RUN ln -s /usr/lib/x86_64-linux-gnu/libodbccr.so.2 /usr/lib/x86_64-linux-gnu/libodbccr.so
