@@ -1,5 +1,4 @@
-# Docker Images para desarrollo
-## Entornos antiguos
+# Docker Images para desarrollo en entornos antiguos
 
 ### Descripción
 Recientemente he tenido que trabajar en un proyecto en el que el cliente utilizada un entorno antiguo y no tenía opciones a mejorarlo. Dado que en windows es muy dificil llegar a instalar este entorno he preparado estas imagenes para montar los contenedores Docker en el stack:
@@ -28,7 +27,7 @@ La razón de no utilizar una sola imagen es que la web y la api pueden tener con
 #### Lanzando scripts
 He incluido unos scripts de construcción y lanzamiento para mayor comodidad (y para los que no conocieran la sintaxis de Docker y Docker Compose). Todos ellos tienen una versión `.bat` para windows y otra `.sh` para linux/mac.
 1. *buildImages*. Este script genera en el motor de Docker las imágenes necesarias para poder montar y correr los contenedores.
-2. *composeUp*. Utilizando la configuración del fichero `docker-compose.yml` el sistema lanzará y levantará tres contenedores docker_atsistemas-api_1, docker_atsistemas-web_1 y docker_atsistemas-databases_1 que quedarán usables.
+2. *composeUp*. Utilizando la configuración del fichero `docker-compose.yml` el sistema lanzará y levantará tres contenedores <nombre_del_path>_atsistemas-api_1, <nombre_del_path>_atsistemas-web_1 y <nombre_del_path>_atsistemas-databases_1 que quedarán usables.
 
 #### Otros scripts
 Además de los scripts de montaje, estos otros os ayudarán con el mantenimiento
