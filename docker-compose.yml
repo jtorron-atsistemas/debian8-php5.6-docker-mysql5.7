@@ -2,25 +2,27 @@ version: '3'
 services:
     atsistemas-web:
         image: atsistemas:web
+        hostname: at.web.local
         privileged: true
         ports:
             - "80:80"
         volumes:
-            - <path_to_this_folder>/source/web:/var/www/html/public
-            - <path_to_this_folder>/profiler/web:/var/www/profiler
-            - <path_to_this_folder>/client-log:/var/log
+            - E:/Desarrollo/old-php-docker/source/web:/var/www/html/public
+            - E:/Desarrollo/old-php-docker/profiler/web:/var/www/profiler
+            - E:/Desarrollo/old-php-docker/client-log:/var/log
         links:
             - atsistemas-databases
             - atsistemas-api
     atsistemas-api:
         image: linkmobility:api
+        hostname: at.api.local
         privileged: true
         ports:
             - "8080:80"
         volumes:
-            - <path_to_this_folder>/source/api:/var/www/html
-            - <path_to_this_folder>/profiler/api:/var/www/profiler
-            - <path_to_this_folder>/docker/api-log:/var/log
+            - E:/Desarrollo/old-php-docker/source/api:/var/www/html
+            - E:/Desarrollo/old-php-docker/profiler/api:/var/www/profiler
+            - E:/Desarrollo/old-php-docker/docker/api-log:/var/log
         environment:
             TZ: "Europe/Madrid"
             DB_CONNECTION: mysql
@@ -37,7 +39,7 @@ services:
         ports:
             - "33306:3306"
         volumes:
-            - <path_to_this_folder>/data:/var/lib/mysql
+            - E:/Desarrollo/old-php-docker/data:/var/lib/mysql
         environment:
             TZ: "Europe/Madrid"
             MYSQL_HOST: "localhost"

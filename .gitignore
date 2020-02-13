@@ -1,0 +1,6 @@
+/data
+/source/api
+/source/web
+/profiler/*
+/api-log/**/*.log
+/client-log/**/*.log

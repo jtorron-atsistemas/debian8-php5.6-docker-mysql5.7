@@ -11,6 +11,7 @@ RUN apt-get install -y apache2 libapache2-mod-php5 php5-xdebug
 RUN apt-get install -y php5-mysql
 
 COPY /conf/apache-default.conf /etc/apache2/sites-available/000-default.conf
+COPY /conf/errors.ini /etc/php5/apache2/conf.d/errors.ini
 
 RUN a2enmod rewrite
 COPY /conf/cmd.sh /bin/
