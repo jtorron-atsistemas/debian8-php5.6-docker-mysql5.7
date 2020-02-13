@@ -1,3 +1,5 @@
 #!/bin/sh
-#/usr/sbin/php5-fpm -c /etc/php5/fpm/php-fpm.conf
+
+rm -f /var/run/apache2/apache2.pid
+
 /usr/sbin/apache2ctl -DFOREGROUND
