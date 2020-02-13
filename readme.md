@@ -106,3 +106,8 @@ Este sería un ejemplo para el launch.json de VS Code (web):
 
 ### Conexión externa a MySQL
 Podeis conectar cualquier tipo de cliente MySQL utilizando el host localhost y el puerto 33306.
+
+## Agradecimientos
+Quiero agradecer a nuestros compañeros del dpto de DevOps:
+- Roberto Salgado, por su inestimable ayuda a la hora de realizar toda la configuración.
+- José Manuel Moreno, por su infinita paciencia al ayudarme a resolver errores extraños.
