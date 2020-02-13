@@ -9,12 +9,12 @@ services:
         volumes:
             - E:/Desarrollo/old-php-docker/source/web:/var/www/html/public
             - E:/Desarrollo/old-php-docker/profiler/web:/var/www/profiler
-            - E:/Desarrollo/old-php-docker/client-log:/var/log
+            - E:/Desarrollo/old-php-docker/client-log:/var/log/apache2
         links:
             - atsistemas-databases
             - atsistemas-api
     atsistemas-api:
-        image: linkmobility:api
+        image: atsistemas:api
         hostname: at.api.local
         privileged: true
         ports:
@@ -22,7 +22,7 @@ services:
         volumes:
             - E:/Desarrollo/old-php-docker/source/api:/var/www/html
             - E:/Desarrollo/old-php-docker/profiler/api:/var/www/profiler
-            - E:/Desarrollo/old-php-docker/docker/api-log:/var/log
+            - E:/Desarrollo/old-php-docker/api-log:/var/log/apache2
         environment:
             TZ: "Europe/Madrid"
             DB_CONNECTION: mysql
