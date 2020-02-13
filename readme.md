@@ -68,7 +68,7 @@ Este sería el launch.json de VS Code (api):
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "XDebug Laravel",
+            "name": "XDebug API",
             "type": "php",
             "request": "launch",
             "port": 9001,
@@ -89,7 +89,7 @@ Este sería un ejemplo para el launch.json de VS Code (web):
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "XDebug Laravel",
+            "name": "XDebug Web",
             "type": "php",
             "request": "launch",
             "port": 9000,
