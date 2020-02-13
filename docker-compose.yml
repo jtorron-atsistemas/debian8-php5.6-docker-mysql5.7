@@ -7,9 +7,9 @@ services:
         ports:
             - "80:80"
         volumes:
-            - E:/Desarrollo/old-php-docker/source/web:/var/www/html/public
-            - E:/Desarrollo/old-php-docker/profiler/web:/var/www/profiler
-            - E:/Desarrollo/old-php-docker/client-log:/var/log/apache2
+            - <path_to_this_folder>/source/web:/var/www/html/public
+            - <path_to_this_folder>/profiler/web:/var/www/profiler
+            - <path_to_this_folder>/client-log:/var/log/apache2
         links:
             - atsistemas-databases
             - atsistemas-api
@@ -20,9 +20,9 @@ services:
         ports:
             - "8080:80"
         volumes:
-            - E:/Desarrollo/old-php-docker/source/api:/var/www/html
-            - E:/Desarrollo/old-php-docker/profiler/api:/var/www/profiler
-            - E:/Desarrollo/old-php-docker/api-log:/var/log/apache2
+            - <path_to_this_folder>/source/api:/var/www/html
+            - <path_to_this_folder>/profiler/api:/var/www/profiler
+            - <path_to_this_folder>/api-log:/var/log/apache2
         environment:
             TZ: "Europe/Madrid"
             DB_CONNECTION: mysql
@@ -39,7 +39,7 @@ services:
         ports:
             - "33306:3306"
         volumes:
-            - E:/Desarrollo/old-php-docker/data:/var/lib/mysql
+            - <path_to_this_folder>/data:/var/lib/mysql
         environment:
             TZ: "Europe/Madrid"
             MYSQL_HOST: "localhost"
